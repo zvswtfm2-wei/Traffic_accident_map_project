@@ -17,7 +17,7 @@ engine = create_engine(conn_str)
 
 # 讀取 CSV
 def load_csv():
-    csv_path = r"C:\Data Engineer\Project\Traffic_accident_map_project\Night_market\Google_api\Data_clean\nightmarket_clean.csv"
+    csv_path = r".\Data_clean\nightmarket_clean.csv"
     if not os.path.exists(csv_path):
         raise FileNotFoundError(f"找不到 CSV 檔案：{csv_path}")
 
@@ -31,8 +31,8 @@ def load_csv():
 # 建立資料表 Schema
 def create_schema():
     create_sql = """
-    CREATE TABLE IF NOT EXISTS Night_market_separate (
-        nightmarket_id              VARCHAR(20) NOT NULL,
+    CREATE TABLE IF NOT EXISTS Night_market_merge (
+        nightmarket_id              VARCHAR(20) NOT NULL UNIQUE,
         nightmarket_name            VARCHAR(30),
         nightmarket_latitude        DECIMAL(15,4),
         nightmarket_longitude       DECIMAL(15,4),
@@ -47,8 +47,7 @@ def create_schema():
         nightmarket_northeast_latitude   DECIMAL(15,4),
         nightmarket_northeast_longitude  DECIMAL(15,4),
         nightmarket_southwest_latitude   DECIMAL(15,4),
-        nightmarket_southwest_longitude  DECIMAL(15,4),
-        UNIQUE KEY uk_nightmarket_id (nightmarket_id, nightmarket_weekday)
+        nightmarket_southwest_longitude  DECIMAL(15,4)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     """
     with engine.connect() as conn:
@@ -61,9 +60,9 @@ def main():
         df = load_csv()
         create_schema()
 
-        # 清空目標表格 Night_market_separate
+        # 清空目標表格 Night_market_merge
         with engine.connect() as conn:
-            conn.execute(text("TRUNCATE TABLE Night_market_separate"))
+            conn.execute(text("TRUNCATE TABLE Night_market_merge"))
             conn.commit()
 
         # 欄位型態轉換

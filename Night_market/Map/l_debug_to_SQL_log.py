@@ -81,7 +81,7 @@ def check_data_quality(df):
 # ★ 讀取 CSV
 # ======================================================
 def load_csv():
-    csv_path = r"C:\Data Engineer\Project\Traffic_accident_map_project\Night_market\Google_api\Data_clean\nightmarket_clean.csv"
+    csv_path = r".\Data_clean\nightmarket_clean.csv"
     if not os.path.exists(csv_path):
         raise FileNotFoundError(f"找不到 CSV 檔案：{csv_path}")
 

@@ -2,8 +2,8 @@
 import os
 import pandas as pd
 
-# 資料來源位置 C:\Data Engineer\Project\Traffic_accident_map_project\Data_raw\Market_time.txt
-# CSV輸出位置 C:\Data Engineer\Project\Traffic_accident_map_project\Data_clean\Market_time
+# 資料來源位置 .\Data_raw\Market_time.txt
+# CSV輸出位置 .\Data_clean\Market_time
 
 def process_market_time(input_file, output_dir, user_input=None):
     # 縣市清單
@@ -104,8 +104,8 @@ def process_market_time(input_file, output_dir, user_input=None):
     print(f"✅ 清理完成，檔案已儲存至：{output_file}")
 
 def main():
-    input_file = r"C:\Data Engineer\Project\Traffic_accident_map_project\Data\Data_raw\Market_time.txt"
-    output_dir = r"C:\Data Engineer\Project\Traffic_accident_map_project\Data\Data_clean\Market_time"
+    input_file = r".\Data_raw\Market_time.txt"
+    output_dir = r".\Data_clean\Market_time"
 
     # 如果單獨執行，互動輸入
     user_input = input("請輸入縣市名稱（或輸入 '全部'）：").strip()

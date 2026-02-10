@@ -7,8 +7,8 @@ import time
 import difflib
 from shapely.geometry import Point, Polygon
 
-# CSV輸出位置   C:\Data Engineer\Project\Traffic_accident_map_project\Data\Data_clean\Market_coordinates
-# Html輸出位置  C:\Data Engineer\Project\Traffic_accident_map_project\Data\Data_clean\Market_coordinates
+# CSV輸出位置   .\Data_clean\Market_coordinates
+# Html輸出位置  .\Data_clean\Market_coordinates
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; NightMarketBot/1.0; +https://example.com)"
@@ -229,7 +229,7 @@ def main(city_name=None):
                 show_map(coords, grid_points, night_market)
 
         #  輸出 CSV：新增 night_market_id
-        output_dir = r"C:\Data Engineer\Project\Traffic_accident_map_project\Data\Data_clean\Market_coordinates"
+        output_dir = r".\Data_clean\Market_coordinates"
         os.makedirs(output_dir, exist_ok=True)
         filename = os.path.join(output_dir, f"all_{city_name}.csv")
         with open(filename, "w", newline="", encoding="utf-8-sig") as f:

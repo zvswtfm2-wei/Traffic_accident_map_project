@@ -5,10 +5,10 @@ from e_crawler_market_coordinate import main as coordinate_main
 from t_clean_market_time import process_market_time
 
 # 檔案路徑設定
-COORDINATE_OUTPUT_DIR = r"C:\Data Engineer\Project\Traffic_accident_map_project\Data\Data_clean\Market_coordinates"
-RAW_TIME_FILE = r"C:\Data Engineer\Project\Traffic_accident_map_project\Data\Data_raw\Market_time.txt"
-TIME_OUTPUT_DIR = r"C:\Data Engineer\Project\Traffic_accident_map_project\Data\Data_clean\Market_time"
-FINAL_OUTPUT_DIR = r"C:\Data Engineer\Project\Traffic_accident_map_project\Data\Data_clean\Market_final"
+COORDINATE_OUTPUT_DIR = r".\Data_clean\Market_coordinates"
+RAW_TIME_FILE = r".\Data_raw\Market_time.txt"
+TIME_OUTPUT_DIR = r".\Data_clean\Market_time"
+FINAL_OUTPUT_DIR = r".\Data_clean\Market_final"
 ALL_FILE = os.path.join(FINAL_OUTPUT_DIR, "all_cities.csv")
 
 def integrated_pipeline():
